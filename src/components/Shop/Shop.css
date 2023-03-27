@@ -9,3 +9,6 @@
    grid-gap: 45px;
    margin: 40px;
 }
+.cart-container{
+    /* position: sticky; */
+}
