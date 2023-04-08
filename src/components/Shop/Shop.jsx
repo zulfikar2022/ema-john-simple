@@ -3,11 +3,12 @@ import { addToDb, getShoppingCart } from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import "./Shop.css";
+import Header from "../Header/Header";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
-  const [quantityOfProducts,setQuantityOfProducts] = useState(0);
+  const[allDataToShow,setAllDataToShow] = useState([]); 
 
   useEffect(() => {
     fetch("products.json")
@@ -39,21 +40,33 @@ const Shop = () => {
   const handleAddToCart = (product) => {
     let newCart = [];
     if (!cart.includes(product)) {
-       newCart = [...cart, product];
-    }
-    else {
-        newCart = [...cart];
+      newCart = [...cart, product];
+    } else {
+      newCart = [...cart];
     }
 
-
-    // setCart([]);
     setCart(newCart);
     addToDb(product.id);
+
+    let totalPrice = 0;
+    let totalShipping = 0;
+    let quantity = 0;
+
+    for (let j = 0; j < cart.length; j++) {
+      quantity = quantity + cart[j]["quantity"];
+      totalPrice = totalPrice + cart[j].price * cart[j].quantity;
+      totalShipping = totalShipping + cart[j].shipping;
+    }
+    console.log("Total : " + totalPrice);
+    const tax = totalPrice * (7 / 100);
+    const grandTotal = totalPrice + totalShipping + tax;
+    const allData = [quantity,totalPrice,totalShipping,tax,grandTotal];
+    setAllDataToShow(allData);
   };
 
-
   return (
-    <div className="shop-container">
+    <div>
+      <div className="shop-container">
       <div className="products-container">
         {products.map((product) => (
           <Product
@@ -65,8 +78,9 @@ const Shop = () => {
       </div>
 
       <div className="cart-container">
-        <Cart cart={cart}></Cart>
+        <Cart allDataToShow={allDataToShow}></Cart>
       </div>
+    </div>
     </div>
   );
 };
