@@ -1,0 +1,30 @@
+.review-item{
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid  #95A0A7;    
+    border-radius: 5px;
+}
+.review-item div{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+.review-item .details{
+    display: flex;
+    flex-direction: column;
+}
+.details .name{
+    font-size: 15px;
+    margin: 1px;
+}
+.details .price {
+    color: orange;
+    text-decoration: underline;
+    font-weight: bold;
+    
+}
+.review-item img {
+    width: 90px;
+    height: auto;
+    border-radius: 4px;
+}
