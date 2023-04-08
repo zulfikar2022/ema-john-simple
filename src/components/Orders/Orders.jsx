@@ -1,22 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Orders.css';
 import Cart from '../Cart/Cart';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useSearchParams } from 'react-router-dom';
 import ReviewItem from '../ReviewItem/ReviewItem';
+import { removeFromDb } from '../../utilities/fakedb';
 
 const Orders = () => {
-    const cart = useLoaderData();
-    console.log(cart);
-    let quantity = 0;
-    cart.forEach(c => {
-        quantity += c.quantity;
-    });
+    const savedCart = useLoaderData();
+    const [cart,setCart] = useState(savedCart);
+
+    const handleRemoveFormCart = (id) => {
+        console.log(id);
+        const remaining = cart.filter(c => c.id!== id);
+        removeFromDb(id);
+        setCart(remaining);
+    }
+  
     return (
         <div className='shop-container'>
 
             <div className='review-container'>
                 {
-                    cart.map(product => <ReviewItem product={product} key={product.id}></ReviewItem>)
+                    cart.map(product => <ReviewItem 
+                        key={product.id}
+                        product={product} 
+                        handleRemoveFormCart={handleRemoveFormCart}
+                        ></ReviewItem>)
                 }
             </div>
 

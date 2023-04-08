@@ -1,6 +1,6 @@
 .review-item{
     margin-top: 20px;
-    padding: 10px;
+    padding: 5px;
     border: 2px solid  #95A0A7;    
     border-radius: 5px;
 }
@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: row;
     gap: 5px;
+    justify-content: space-between;
 }
 .review-item .details{
     display: flex;
@@ -27,4 +28,16 @@
     width: 90px;
     height: auto;
     border-radius: 4px;
+}
+.review-item .icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color:rgb(241, 233, 233);
+    background-color: rgb(235, 102, 102);
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.review-item .icon:hover{
+    cursor: pointer;
 }
