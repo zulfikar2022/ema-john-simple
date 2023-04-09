@@ -6,6 +6,7 @@ import "./Shop.css";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     fetch("products.json")
@@ -19,19 +20,35 @@ const Shop = () => {
 
     for (const id in storedCart) {
       const addedProduct = products.find((product) => product.id === id);
+      console.log("added product", addedProduct);
+
       if (addedProduct) {
         const quantity = storedCart[id];
         addedProduct.quantity = quantity;
         savedCart.push(addedProduct);
       }
     }
-    console.log(savedCart);
+    setCart(savedCart);
   }, [products]);
 
   const handleAddToCart = (product) => {
+    let newCart = [];
+
+    const exist = cart.find((pd) => pd.id === product.id);
+    if (!exist) {
+      product.quantity = 1;
+      newCart = [...cart,product];
+    }
+    else {
+      exist.quantity = exist.quantity+1;
+      const remaining = cart.filter(pd => pd.id !== product.id);
+      newCart = [...remaining,exist];
+    }
+
+    setCart(newCart);
     addToDb(product.id);
-  
   };
+  console.log(cart)
 
   return (
     <div>
@@ -47,7 +64,7 @@ const Shop = () => {
         </div>
 
         <div className="cart-container">
-          <Cart></Cart>
+          <Cart cart={cart}></Cart>
         </div>
       </div>
     </div>
