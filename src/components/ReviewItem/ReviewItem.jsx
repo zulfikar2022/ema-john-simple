@@ -2,7 +2,7 @@ import React from "react";
 import "./ReviewItem.css";
 import { BeakerIcon } from '@heroicons/react/24/solid';
 
-const ReviewItem = ({ product , handleRemoveFormCart}) => {
+const ReviewItem = ({ product , handleRemoveFromCart}) => {
   return (
     <div className="review-item">
       <div>
@@ -23,7 +23,7 @@ const ReviewItem = ({ product , handleRemoveFormCart}) => {
           </div>
         </div>
         {/* <BeakerIcon className="h-6 w-6 icon text-blue-500" /> */}
-        <BeakerIcon onClick={() => handleRemoveFormCart(product.id)} className="h-6 w-6 icon text-blue-500" />
+        <BeakerIcon onClick={() => handleRemoveFromCart(product.id)} className="h-6 w-6 icon text-blue-500" />
       </div>
     </div>
   );
