@@ -7,3 +7,28 @@
     top: 10px;
     border-radius: 10px;
 }
+.clear-cart{
+    background-color: #FF3030;
+    border: 0px;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    text-align: left;
+    font-size: large;
+
+}
+.clear-cart:hover{
+    cursor: pointer;
+}
+.children{
+    /* background-color:#FF9900 ;
+    border: 0px;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    text-align: left;
+    font-size: medium; */
+    /* width: 100%; */
+}

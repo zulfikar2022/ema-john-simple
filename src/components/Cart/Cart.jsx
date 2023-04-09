@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 import "./Cart.css";
-import { getShoppingCart } from "../../utilities/fakedb";
+// import { getShoppingCart } from "../../utilities/fakedb";
 
 
-const Cart = (props) => {
+const Cart = ({cart,handleClearCart,children}) => {
  
-  const { cart } = props;
-  console.log(cart);
+  // const { cart } = props;
+  // const handleClearCart = props.handleClearCart;
 
   let total = 0,totalShipping = 0,quantity = 0;
   for (const product of cart) {
@@ -26,6 +26,8 @@ const Cart = (props) => {
       <p>Total Shipping charge : ${totalShipping}</p>
       <p>Tax : ${tax.toFixed(2)}</p>
       <h6>Grand Total : ${grandTotal.toFixed(2)}</h6>
+      <button onClick={handleClearCart} className="clear-cart">Clear Cart</button>
+      <div className="children">{children}</div>
     </div>
   );
 };

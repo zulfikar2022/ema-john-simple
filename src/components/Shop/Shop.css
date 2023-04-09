@@ -12,3 +12,17 @@
 .cart-container{
     /* position: sticky; */
 }
+.review-order{
+    background-color:#FF9900 ;
+    border: 0px;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    text-align: left;
+    font-size: medium;
+    margin-top: 10px;
+}
+.review-order:hover {
+    cursor: pointer;
+}
