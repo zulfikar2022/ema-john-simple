@@ -41,10 +41,8 @@ const SignUp = () => {
             setSuccess('');
             setError(error.message)
         })
-
-
-
   };
+  
   const handleSignUpWithGoogle = () => {
 
   }

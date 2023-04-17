@@ -1,10 +1,15 @@
 import React, { useContext, useState } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Login = () => {
+  
   const { signIn, setUser, user } = useContext(AuthContext);
+  const [errorMessage,setErrorMessage] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log('location ',location);
  
 
   const handleLogin = (event) => {
@@ -15,14 +20,18 @@ const Login = () => {
     const password = form.password.value;
     console.log(email, password);
 
+    setErrorMessage('');
     signIn(email, password)
       .then((result) => {
         console.log(result.user);
         setUser(result.user);
         form.reset();
+        navigate('/');
+        setErrorMessage('');
       })
       .catch((error) => {
         console.log(error);
+        setErrorMessage(error.message);
       });
   };
 
@@ -58,7 +67,7 @@ const Login = () => {
             </div>
             {/* <button className="btn-sign-up">Login</button> */}
             <div>
-              <input type="submit" className="btn-sign-up" value="Login" />
+              <input style={{width:'216px'}} type="submit" className="btn-sign-up" value="Login" />
             </div>
           </form>
 
@@ -68,6 +77,9 @@ const Login = () => {
               <span className="login-text">Sign Up first</span>
             </Link>{" "}
           </p>
+          {
+            errorMessage && <p className="text-warning">{errorMessage}</p>
+          }
           <div className="or-section">
             <span>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
