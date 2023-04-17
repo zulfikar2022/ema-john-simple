@@ -6,7 +6,7 @@ import Shop from '../Shop/Shop';
 
 const Home = () => {
     return (
-        <div>
+        <div style={{position:'relative'}}>
             <Header></Header>
             <Outlet></Outlet>
         </div>

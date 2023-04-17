@@ -6,6 +6,9 @@
     justify-content: space-between;
     padding-left: 100px;
     padding-right: 100px;
+    /* position: fixed;
+    top: 10px;
+    z-index: 1; */
 }
 
 .header div{
