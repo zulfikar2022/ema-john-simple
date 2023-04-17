@@ -1,0 +1,86 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+
+    /* padding: 20px; */
+}
+.form div {
+    padding-top: 15px;
+}
+.form div input {
+    margin-top: 5px;
+}
+input{
+    padding: 10px;
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #cacfd3;
+}
+.form-container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #cacfd3;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow:  -8px 8px #ffe0b3;
+}
+.btn-sign-up-container{
+  
+}
+.btn-sign-up{
+    background-color: #ffe0b3;
+    width: 236%;
+    padding: 20px;
+    margin-bottom: 10px;
+    border: 0;
+    border-radius: 5px;
+    font-weight: bold;
+
+}
+.btn-sign-up:hover{
+    cursor: pointer;
+}
+ 
+
+.login-text{
+    color: orange;
+}
+.or-section{
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+.or-section span{
+    border-top: 1px solid #cacfd3;
+}
+.social-link{
+    display: flex;
+    border: 1px solid #cacfd3;
+    justify-content: center;
+    gap: 6px;
+    border-radius: 4px;
+}
+.social-link:hover{
+    cursor: pointer;
+}
+.social-logo{
+    width: 20%;
+}
+a{
+    text-decoration: none;
+}
+
+.text-warning{
+    color: red;
+}
+.text-success{
+    color: green;
+}
