@@ -10,6 +10,8 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   console.log('location ',location);
+  const previousLocation = location.state.from.pathname;
+  console.log(previousLocation);
  
 
   const handleLogin = (event) => {
