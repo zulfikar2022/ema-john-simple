@@ -5,13 +5,14 @@ import { AuthContext } from "../providers/AuthProvider";
 
 const Login = () => {
   
+  const [show,setShow] = useState(false);
   const { signIn, setUser, user } = useContext(AuthContext);
   const [errorMessage,setErrorMessage] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
   console.log('location ',location);
-  const previousLocation = location.state.from.pathname;
-  console.log(previousLocation);
+  const from = location.state?.from?.pathname || '/';
+ 
  
 
   const handleLogin = (event) => {
@@ -28,7 +29,7 @@ const Login = () => {
         console.log(result.user);
         setUser(result.user);
         form.reset();
-        navigate('/');
+        navigate(from,{replace:true});
         setErrorMessage('');
       })
       .catch((error) => {
@@ -60,12 +61,17 @@ const Login = () => {
               <label htmlFor="password-field">Password</label>
               <br />
               <input
-                type="password"
+                type={show ? 'text' : 'password'}
                 name="password"
                 id="password-field"
                 placeholder="Password here"
                 required
               />
+              <p onClick={() => {setShow(!show)}}><small>
+                  {
+                    show ? <span>Hide password</span> :<span>Show password</span>
+                  }
+                </small></p>
             </div>
             {/* <button className="btn-sign-up">Login</button> */}
             <div>
