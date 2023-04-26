@@ -29,4 +29,5 @@
 }
 .btn-cart:hover{
     background-color: orange;
+    cursor: pointer;
 }

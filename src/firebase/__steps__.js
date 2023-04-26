@@ -32,7 +32,7 @@
  * 5. select the project carefully
  * 6. which project as public directory: dist (for vite), build (for create react app)
  * 7. single page application: yes
- * 8. continous deployment: no
+ * 8. continious deployment: no
  * 
  * For Every time deploy
  * 1. npm run build
