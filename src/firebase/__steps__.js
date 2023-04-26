@@ -36,6 +36,5 @@
  * 
  * For Every time deploy
  * 1. npm run build
- * 2. firebase deploy
- * 
+ * 2. firebase deploy 
  */
