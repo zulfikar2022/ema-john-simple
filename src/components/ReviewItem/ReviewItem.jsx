@@ -23,7 +23,7 @@ const ReviewItem = ({ product , handleRemoveFromCart}) => {
           </div>
         </div>
         {/* <BeakerIcon className="h-6 w-6 icon text-blue-500" /> */}
-        <BeakerIcon onClick={() => handleRemoveFromCart(product.id)} className="h-6 w-6 icon text-blue-500" />
+        <BeakerIcon onClick={() => handleRemoveFromCart(product._id)} className="h-6 w-6 icon text-blue-500" />
       </div>
     </div>
   );

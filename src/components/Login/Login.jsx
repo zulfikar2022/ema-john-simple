@@ -6,7 +6,7 @@ import { AuthContext } from "../providers/AuthProvider";
 const Login = () => {
   
   const [show,setShow] = useState(false);
-  const { signIn, setUser, user } = useContext(AuthContext);
+  const { signIn, setUser, user,auth } = useContext(AuthContext);
   const [errorMessage,setErrorMessage] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
